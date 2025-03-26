@@ -12,7 +12,7 @@ const loginVerify = async (req, res)=>{
             let user = await userModel.findOne({
                 email 
             });
-            console.log(user)
+
             if (!user){
                 res.status(404).json({
                     message : "invalid email or password"
@@ -25,7 +25,7 @@ const loginVerify = async (req, res)=>{
             }
             let userDetails = { "id" :  user.email };
             console.log(userDetails)
-            const token = jwt.sign(userDetails,secret,{expiresIn:10});
+            const token = jwt.sign(userDetails,secret,{expiresIn:1000000});
             res.status(201).json({
                 message:"sign in successful",
                 token:token
