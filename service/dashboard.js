@@ -3,7 +3,7 @@ const dashboard = async (req, res, next)=>{
     try{
 
         if (req.user){
-            res.status(201).json({            
+            res.status(200).json({            
                 message : `welcome ${req.user.firstName}`
             }); 
         }else{
